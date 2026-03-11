@@ -1,11 +1,18 @@
 <template>
-  <div>
-    <h1>Página inicial</h1>
+  <div class="main-container">
+    <FormularioMatricula/>
   </div>
 </template>
 
 <script>
-export default {
-  name: "MatriculaCursos"
-}
+
+  import FormularioMatricula from "../components/FormularioMatricula.vue"
+
+  export default {
+    name: "MatriculaCursos",
+    components: {
+      FormularioMatricula
+    }
+  }
+  
 </script>

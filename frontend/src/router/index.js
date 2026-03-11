@@ -9,7 +9,7 @@ const routes = [
   {
     path: '/alunos',
     name: 'alunos',
-    component: () => import('../views/MatriculasAlunos.vue')
+    component: () => import('../views/InscricaoAlunos.vue')
   }
 ]
 

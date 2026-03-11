@@ -1,12 +1,15 @@
 <template>
-  <div>
+  <div class="main-container">
     <h1>oiklaskdosakdas</h1>
   </div>
 </template>
 
 <script>
+
   export default{
-    name: "MatriculasAlunos"
+    name: "InscricaoAlunos",
+    components:{
+    }
   }
 </script>
 

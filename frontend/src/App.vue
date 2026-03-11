@@ -1,7 +1,7 @@
 <template>
 <div>
   <NavBar :logo="logo_src" :alt="app_name"/>
-  <h1>olá</h1>
+  <router-view/>
 </div>
 
 </template>
@@ -32,6 +32,12 @@ import NavBar from "./components/NavBar.vue"
   margin: 0;
   padding: 0;
   border: 0;
+}
+
+.main-container{
+  margin: 50px;
+  min-height: 250px;
+
 }
 
 </style>
