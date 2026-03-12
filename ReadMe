@@ -13,7 +13,7 @@ O sistema permite que o usuário:
 * Envie seus dados para uma API
 * Receba feedback de sucesso ou erro
 
-O backend utiliza um **banco de dados simulado em memória**, permitindo demonstrar o fluxo de requisições sem a necessidade de um banco de dados real.
+O backend utiliza um **banco de dados simulado**, permitindo demonstrar o fluxo de requisições sem a necessidade de um banco de dados real.
 
 ---
 
@@ -22,10 +22,9 @@ O backend utiliza um **banco de dados simulado em memória**, permitindo demonst
 ### Frontend
 
 * Vue.js
-* Vite
-* TypeScript
 * HTML
 * CSS
+* JS
 
 ### Backend
 
