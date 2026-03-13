@@ -43,26 +43,31 @@ O projeto foi dividido em duas partes principais:
 matricula-cursos
 │
 ├── frontend
-│   ├── src
-│   │   ├── components
-│   │   │   └── FormularioMatricula.vue
-│   │   ├── services
-│   │   │   └── api.ts
-│   │   ├── App.vue
-│   │   └── main.ts
+│ ├── src
+│ │ ├── components
+│ │ │ ├── FormularioMatricula.vue
+│ │ │ ├── TabelaMatriculas.vue
+│ │ │ └── FormularioMensagem.vue
+│ │ │
+│ │ ├── App.vue
+│ │ └── main.js
 │
-└── backend
-    ├── src
-    │   ├── database
-    │   │   └── fakeDB.ts
-    │   │
-    │   ├── models
-    │   │
-    │   ├── routes
-    │   │   ├── cursos.ts
-    │   │   └── matricula.ts
-    │   │
-    │   └── server.ts
+├── backend
+│ ├── src
+│ │ ├── database
+│ │ │ ├── cursos.json
+│ │ │ └── matriculas.json
+│ │ │
+│ │ ├── models
+│ │ │ └── Matricula.ts
+│ │ │
+│ │ ├── routes
+│ │ │ ├── cursos.ts
+│ │ │ └── matricula.ts
+│ │ │
+│ │ └── server.ts
+│
+└── package.json
 ```
 
 ---
@@ -128,13 +133,13 @@ npm install
 Execute o projeto:
 
 ```
-npm run dev
+npm run serve
 ```
 
 O frontend será iniciado em:
 
 ```
-http://localhost:5173
+http://localhost:8080/ 
 ```
 
 ---
