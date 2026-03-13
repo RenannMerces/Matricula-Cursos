@@ -12,6 +12,8 @@ O sistema permite que o usuário:
 * Preencha um formulário de matrícula
 * Envie seus dados para uma API
 * Receba feedback de sucesso ou erro
+* Visualize uma tabela com todos os alunos matriculados e o curso correspondente
+* Remova matrículas existentes diretamente pela interface
 
 O backend utiliza um **banco de dados simulado**, permitindo demonstrar o fluxo de requisições sem a necessidade de um banco de dados real.
 
@@ -44,13 +46,25 @@ matricula-cursos
 │
 ├── frontend
 │ ├── src
+│ │ ├── assets
+│ │ │
 │ │ ├── components
 │ │ │ ├── FormularioMatricula.vue
-│ │ │ ├── TabelaMatriculas.vue
-│ │ │ └── FormularioMensagem.vue
+│ │ │ ├── FormularioMensagem.vue
+│ │ │ ├── NavBar.vue
+│ │ │ └── TabelaMatriculas.vue
+│ │ │
+│ │ ├── router
+│ │ │ └── index.js
+│ │ │
+│ │ ├── views
+│ │ │ ├── InscricaoAlunos.vue
+│ │ │ └── MatriculaCursos.vue
 │ │ │
 │ │ ├── App.vue
 │ │ └── main.js
+│ │
+│ └── package.json
 │
 ├── backend
 │ ├── src
@@ -59,6 +73,7 @@ matricula-cursos
 │ │ │ └── matriculas.json
 │ │ │
 │ │ ├── models
+│ │ │ ├── Curso.ts
 │ │ │ └── Matricula.ts
 │ │ │
 │ │ ├── routes
@@ -66,8 +81,13 @@ matricula-cursos
 │ │ │ └── matricula.ts
 │ │ │
 │ │ └── server.ts
+│ │
+│ ├── package.json
+│ └── tsconfig.json
 │
-└── package.json
+├── .gitignore
+├── package.json
+└── README.md
 ```
 
 ---
@@ -144,70 +164,54 @@ http://localhost:8080/
 
 ---
 
-# 🔗 Rotas da API
+# 📂 Descrição das Pastas
 
-## Listar Cursos
+## Frontend
 
-```
-GET /cursos
-```
+O **frontend** foi desenvolvido utilizando **Vue.js**, sendo responsável pela interface da aplicação e interação com o usuário.
 
-Retorna a lista de cursos disponíveis.
+- **components** → Componentes reutilizáveis da interface.
+- **router** → Configuração de rotas da aplicação.
+- **views** → Páginas principais exibidas ao usuário.
+- **App.vue** → Componente raiz da aplicação.
+- **main.js** → Ponto de inicialização do Vue.
 
-### Exemplo de resposta
+### Componentes principais
 
-```
-[
-  { "id": 1, "nome": "Desenvolvimento Web" },
-  { "id": 2, "nome": "UX Design" },
-  { "id": 3, "nome": "Banco de Dados" }
-]
-```
-
----
-
-## Realizar Matrícula
-
-```
-POST /matricula
-```
-
-### Corpo da requisição
-
-```
-{
-  "nome": "Nome do aluno",
-  "email": "email@email.com",
-  "cursoId": 1
-}
-```
-
-### Respostas possíveis
-
-**201 Created**
-
-Matrícula realizada com sucesso.
-
-**400 Bad Request**
-
-Dados inválidos enviados na requisição.
+- **FormularioMatricula.vue** → Formulário para matrícula em cursos.
+- **TabelaMatriculas.vue** → Exibe as matrículas realizadas.
+- **FormularioMensagem.vue** → Exibe mensagens de sucesso ou erro.
+- **NavBar.vue** → Barra de navegação da aplicação.
 
 ---
 
-# 🗄 Banco de Dados Simulado
+## Backend
 
-Para fins acadêmicos, foi utilizado um **banco de dados simulado em memória**, implementado através de arrays no arquivo:
+O **backend** foi desenvolvido utilizando **Node.js com Express e TypeScript**, sendo responsável por fornecer a API e gerenciar os dados da aplicação.
 
-```
-backend/src/database/fakeDB.ts
-```
+### Estrutura
 
-Isso permite armazenar temporariamente:
+- **database** → Simulação de banco de dados utilizando arquivos JSON.
+- **models** → Interfaces TypeScript para tipagem dos dados.
+- **routes** → Definição das rotas da API.
+- **server.ts** → Arquivo principal que inicializa o servidor Express.
 
-* lista de cursos
-* matrículas realizadas
+### Arquivos de dados
 
-Sem a necessidade de um banco de dados real.
+- **cursos.json** → Lista de cursos disponíveis.
+- **matriculas.json** → Registros de matrículas realizadas.
+
+---
+
+# 🔗 Comunicação entre Frontend e Backend
+
+A aplicação funciona através de uma **API REST**:
+
+- `GET /cursos` → Retorna os cursos disponíveis
+- `GET /matriculas` → Retorna as matrículas cadastradas
+- `POST /matricula` → Realiza uma nova matrícula
+
+O **frontend consome essas rotas** para exibir os cursos e registrar novas matrículas.
 
 ---
 

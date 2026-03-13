@@ -32,8 +32,6 @@ export default{
   box-shadow:0 3px 10px rgba(0,0,0,0.15);
 }
 
-/* LOGO */
-
 #logo-url{
   display:flex;
   align-items:center;
@@ -52,8 +50,6 @@ export default{
   font-size:18px;
 }
 
-/* LINKS */
-
 .links{
   display:flex;
   gap:25px;
@@ -67,8 +63,6 @@ export default{
   padding:5px;
   transition:0.3s;
 }
-
-/* hover animation */
 
 .links a::after{
   content:"";
@@ -85,14 +79,10 @@ export default{
   width:100%;
 }
 
-/* active route */
-
 .links a.router-link-active{
   color:#003f7a;
   font-weight:700;
 }
-
-/* RESPONSIVO */
 
 @media (max-width:768px){
 

@@ -229,8 +229,6 @@ input:focus, select:focus{
   color:green;
 }
 
-/* Responsivo */
-
 @media (max-width:600px){
 
   .form-container{

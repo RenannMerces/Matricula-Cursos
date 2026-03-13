@@ -49,16 +49,12 @@ router.post("/", (req: Request, res: Response) => {
     })
   }
 
-  // sanitização dos dados
   const nomeTratado = nome.trim()
   const emailTratado = email.trim().toLowerCase()
 
   try {
 
-    // lê arquivo
     const data = fs.readFileSync(filePath, "utf-8")
-
-    // se estiver vazio retorna array
     const matriculas: Matricula[] = data ? JSON.parse(data) : []
 
     const novaMatricula = {
@@ -68,7 +64,6 @@ router.post("/", (req: Request, res: Response) => {
       curso
     }
 
-    // adiciona nova matrícula
     matriculas.push(novaMatricula)
     fs.writeFileSync(filePath, JSON.stringify(matriculas, null, 2))
 

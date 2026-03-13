@@ -53,8 +53,6 @@
   text-align: center;
 }
 
-/* animação suave */
-
 @keyframes fadeIn{
   from{
     opacity: 0;
@@ -66,8 +64,6 @@
     transform: translateY(0);
   }
 }
-
-/* responsivo */
 
 @media (max-width:600px){
 
